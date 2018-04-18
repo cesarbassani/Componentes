@@ -5,6 +5,8 @@
     <string name="snack_me">Snack me</string>
     <string name="desfazer">Desfaser</string>
     <string name="acao_desfeita">Ação desfeita</string>
+    <string name="get_spinner_value">Get spinner value</string>
+    <string name="set_spinner_value">Set spinner value</string>
 
     <string-array name="weight_array">
         <item>Grama</item>
