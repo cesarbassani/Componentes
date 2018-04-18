@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="toast_me">Toast me</string>
+    <string name="toast_me_custom">Toast me custom</string>
 </resources>
