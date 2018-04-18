@@ -5,4 +5,11 @@
     <string name="snack_me">Snack me</string>
     <string name="desfazer">Desfaser</string>
     <string name="acao_desfeita">Ação desfeita</string>
+
+    <string-array name="weight_array">
+        <item>Grama</item>
+        <item>KG</item>
+        <item>Arroba</item>
+        <item>Toneladas</item>
+    </string-array>
 </resources>

@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,12 +28,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.mViewHolder.mButtonToast = this.findViewById(R.id.button_toast);
         this.mViewHolder.mButtonSnack = this.findViewById(R.id.button_snack);
+        this.mViewHolder.mSpinnerDyanamic = findViewById(R.id.spinner_dynamic);
         this.mViewHolder.mCOnsConstraintLayout = this.findViewById(R.id.constraint_layout);
 
         //Eventos
 
         this.setListener();
 
+        this.loadSpinner();
+
+    }
+
+    private void loadSpinner() {
+        List<String> lst = Mock.getWeightMock();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, lst);
+
+        this.mViewHolder.mSpinnerDyanamic.setAdapter(adapter);
     }
 
     private void setListener() {
@@ -82,6 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static class ViewHolder {
         private Button mButtonToast;
         private Button mButtonSnack;
+        private Spinner mSpinnerDyanamic;
         private ConstraintLayout mCOnsConstraintLayout;
     }
 }
