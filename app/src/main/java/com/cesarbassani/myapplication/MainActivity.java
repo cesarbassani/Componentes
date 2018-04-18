@@ -1,6 +1,8 @@
 package com.cesarbassani.myapplication;
 
 import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         this.mViewHolder.mButtonToast = this.findViewById(R.id.button_toast);
+        this.mViewHolder.mButtonSnack = this.findViewById(R.id.button_snack);
+        this.mViewHolder.mCOnsConstraintLayout = this.findViewById(R.id.constraint_layout);
 
         //Eventos
 
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void setListener() {
         this.mViewHolder.mButtonToast.setOnClickListener(this);
+        this.mViewHolder.mButtonSnack.setOnClickListener(this);
     }
 
     @Override
@@ -50,10 +55,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             toast.show();
 
+        } else if (id == R.id.button_snack) {
+            Snackbar.make(this.mViewHolder.mCOnsConstraintLayout, R.string.snack_me, Snackbar.LENGTH_SHORT).show();
         }
     }
 
     private static class ViewHolder {
         private Button mButtonToast;
+        private Button mButtonSnack;
+        private ConstraintLayout mCOnsConstraintLayout;
     }
 }
