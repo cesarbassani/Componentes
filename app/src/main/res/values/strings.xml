@@ -3,4 +3,6 @@
     <string name="toast_me">Toast me</string>
     <string name="toast_me_custom">Toast me custom</string>
     <string name="snack_me">Snack me</string>
+    <string name="desfazer">Desfaser</string>
+    <string name="acao_desfeita">Ação desfeita</string>
 </resources>

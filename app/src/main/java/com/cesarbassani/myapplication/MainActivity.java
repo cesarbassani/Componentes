@@ -3,6 +3,7 @@ package com.cesarbassani.myapplication;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -56,7 +57,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             toast.show();
 
         } else if (id == R.id.button_snack) {
-            Snackbar.make(this.mViewHolder.mCOnsConstraintLayout, R.string.snack_me, Snackbar.LENGTH_SHORT).show();
+            Snackbar snackbar = Snackbar.make(this.mViewHolder.mCOnsConstraintLayout, R.string.snack_me, Snackbar.LENGTH_SHORT);
+
+            snackbar.setAction(getString(R.string.desfazer), new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(mViewHolder.mCOnsConstraintLayout, R.string.acao_desfeita, Snackbar.LENGTH_LONG).show();
+                }
+            });
+
+            TextView textView = findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);
+
+            getResources().getColor(R.color.colorPrimary);
+            ContextCompat.getColor(this, R.color.colorPrimary);
+
+            View view = snackbar.getView();
+            view.setBackgroundColor(Color.DKGRAY);
+
+            snackbar.show();
         }
     }
 
