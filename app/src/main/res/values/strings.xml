@@ -7,6 +7,7 @@
     <string name="acao_desfeita">Ação desfeita</string>
     <string name="get_spinner_value">Get spinner value</string>
     <string name="set_spinner_value">Set spinner value</string>
+    <string name="progress">Progress</string>
 
     <string-array name="weight_array">
         <item>Grama</item>

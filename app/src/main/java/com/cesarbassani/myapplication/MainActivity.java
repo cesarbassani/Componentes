@@ -1,5 +1,6 @@
 package com.cesarbassani.myapplication;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
@@ -32,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.mSpinnerDyanamic = findViewById(R.id.spinner_dynamic);
         this.mViewHolder.mButtonGetSpinner = findViewById(R.id.button_get_spinner);
         this.mViewHolder.mButtonSetSpinner = findViewById(R.id.button_set_spinner);
+        this.mViewHolder.mButtonProgress = findViewById(R.id.button_progress);
         this.mViewHolder.mCOnsConstraintLayout = this.findViewById(R.id.constraint_layout);
+        this.mViewHolder.mProgressDialog = new ProgressDialog(this);
 
         //Eventos
 
@@ -55,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.mButtonSnack.setOnClickListener(this);
         this.mViewHolder.mButtonSetSpinner.setOnClickListener(this);
         this.mViewHolder.mButtonGetSpinner.setOnClickListener(this);
+        this.mViewHolder.mButtonProgress.setOnClickListener(this);
 
         this.mViewHolder.mSpinnerDyanamic.setOnItemSelectedListener(this);
     }
@@ -105,6 +109,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         } else if (id == R.id.button_set_spinner) {
             this.mViewHolder.mSpinnerDyanamic.setSelection(3);
+
+        } else if (id == R.id.button_progress) {
+
+            this.mViewHolder.mProgressDialog.setTitle("Título");
+            this.mViewHolder.mProgressDialog.setMessage("Minha mensagem");
+            this.mViewHolder.mProgressDialog.show();
+
+//            this.mViewHolder.mProgressDialog.hide();
+//            this.mViewHolder.mProgressDialog.dismiss();
         }
     }
 
@@ -121,6 +134,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static class ViewHolder {
         private Button mButtonToast;
         private Button mButtonSnack;
+        private Button mButtonProgress;
+        private ProgressDialog mProgressDialog;
         private Button mButtonGetSpinner;
         private Button mButtonSetSpinner;
         private Spinner mSpinnerDyanamic;
