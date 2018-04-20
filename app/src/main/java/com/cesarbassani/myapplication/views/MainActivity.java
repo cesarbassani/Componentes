@@ -1,4 +1,4 @@
-package com.cesarbassani.myapplication;
+package com.cesarbassani.myapplication.views;
 
 import android.app.ProgressDialog;
 import android.graphics.Color;
@@ -13,13 +13,17 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cesarbassani.myapplication.mock.Mock;
+import com.cesarbassani.myapplication.R;
+
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener, SeekBar.OnSeekBarChangeListener {
 
     private ViewHolder mViewHolder = new ViewHolder();
 
@@ -28,14 +32,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.mViewHolder.mTextSeek = findViewById(R.id.text_seek);
         this.mViewHolder.mButtonToast = this.findViewById(R.id.button_toast);
         this.mViewHolder.mButtonSnack = this.findViewById(R.id.button_snack);
         this.mViewHolder.mSpinnerDyanamic = findViewById(R.id.spinner_dynamic);
         this.mViewHolder.mButtonGetSpinner = findViewById(R.id.button_get_spinner);
         this.mViewHolder.mButtonSetSpinner = findViewById(R.id.button_set_spinner);
+        this.mViewHolder.mButtonGetSeek = findViewById(R.id.button_get_seek);
+        this.mViewHolder.mButtonSetSeek = findViewById(R.id.button_set_seek);
         this.mViewHolder.mButtonProgress = findViewById(R.id.button_progress);
         this.mViewHolder.mCOnsConstraintLayout = this.findViewById(R.id.constraint_layout);
         this.mViewHolder.mProgressDialog = new ProgressDialog(this);
+        this.mViewHolder.mSeekValue = findViewById(R.id.seek_value);
 
         //Eventos
 
@@ -58,9 +66,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.mButtonSnack.setOnClickListener(this);
         this.mViewHolder.mButtonSetSpinner.setOnClickListener(this);
         this.mViewHolder.mButtonGetSpinner.setOnClickListener(this);
+        this.mViewHolder.mButtonSetSeek.setOnClickListener(this);
+        this.mViewHolder.mButtonGetSeek.setOnClickListener(this);
         this.mViewHolder.mButtonProgress.setOnClickListener(this);
 
         this.mViewHolder.mSpinnerDyanamic.setOnItemSelectedListener(this);
+        this.mViewHolder.mSeekValue.setOnSeekBarChangeListener(this);
     }
 
     @Override
@@ -118,6 +129,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 //            this.mViewHolder.mProgressDialog.hide();
 //            this.mViewHolder.mProgressDialog.dismiss();
+        } else if (id == R.id.button_get_seek) {
+
+            String value = String.valueOf(this.mViewHolder.mSeekValue.getProgress());
+
+            Toast.makeText(this, value, Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.button_set_seek) {
+
+            this.mViewHolder.mSeekValue.setProgress(10);
         }
     }
 
@@ -131,14 +151,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onNothingSelected(AdapterView<?> parent) {
     }
 
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+        if (seekBar.getId() == R.id.seek_value) {
+            this.mViewHolder.mTextSeek.setText(String.valueOf(progress));
+        }
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+
+    }
+
     private static class ViewHolder {
+
+        private TextView mTextSeek;
         private Button mButtonToast;
         private Button mButtonSnack;
         private Button mButtonProgress;
         private ProgressDialog mProgressDialog;
         private Button mButtonGetSpinner;
         private Button mButtonSetSpinner;
+        private Button mButtonGetSeek;
+        private Button mButtonSetSeek;
         private Spinner mSpinnerDyanamic;
+        private SeekBar mSeekValue;
         private ConstraintLayout mCOnsConstraintLayout;
     }
 }

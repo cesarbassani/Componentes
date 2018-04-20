@@ -1,4 +1,4 @@
-package com.cesarbassani.myapplication;
+package com.cesarbassani.myapplication.mock;
 
 import java.util.ArrayList;
 import java.util.List;

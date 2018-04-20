@@ -8,6 +8,9 @@
     <string name="get_spinner_value">Get spinner value</string>
     <string name="set_spinner_value">Set spinner value</string>
     <string name="progress">Progress</string>
+    <string name="get_seekbar_value">get seekbar value</string>
+    <string name="set_seekbar_value">set seekbar value</string>
+    <string name="date">Date</string>
 
     <string-array name="weight_array">
         <item>Grama</item>
