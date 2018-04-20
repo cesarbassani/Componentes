@@ -11,6 +11,8 @@
     <string name="get_seekbar_value">get seekbar value</string>
     <string name="set_seekbar_value">set seekbar value</string>
     <string name="date">Date</string>
+    <string name="get_time">get_time</string>
+    <string name="set_time">set time</string>
 
     <string-array name="weight_array">
         <item>Grama</item>
